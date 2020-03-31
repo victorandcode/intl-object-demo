@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Intl Object 🌐</title>
+  <title>🌐 The Intl Object</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -28,6 +28,7 @@
         depending
         on the language</p>
       <ul id="sorted-elements"></ul>
+      <hr />
       <h3>Code:</h3>
       <code>
         const sortedElements = elementsToSort.concat().sort(new Intl.Collator(locale).compare)
@@ -41,7 +42,7 @@
       <p>Browser: As usual, there is. Just use Intl.DateTimeFormat and you're good to go. For example, let's format
         today's date:</p>
       <span id="formatted-date"></span>
-      <br />
+      <hr />
       <h3>Code:</h3>
       <code>
         const formattedDate = new Intl.DateTimeFormat(locale).format(new Date())
@@ -57,6 +58,7 @@
       <p>Browser: A simple API as always. Go with Intl.ListFormat, it supports conjunction, disjunction and unit
         formatting. Here's an example</p>
       <ul id="list-format"></ul>
+      <hr />
       <h3>Code</h3>
       <code>
         const formattedList = new Intl.ListFormat(locale, {
@@ -85,6 +87,7 @@
       <div class="form-group">
         <label>Formatted version:</label> <span id="number-format-output"></span>
       </div>
+      <hr />
       <h3>Code</h3>
       <code>
         const formattedCurrency = new Intl.NumberFormat(locale, {
@@ -107,6 +110,7 @@
         <input type="number" id="plural-rules-cat-count" value="3">
       </div>
       <span id="plural-rules"></span>
+      <hr />
       <h3>Code</h3>
       <code>
         const pluralRule = new Intl.PluralRules(locale, {
@@ -132,6 +136,7 @@
         </select>
       </div>
       The value formatted with the unit is: <span id="relative-time-format"></span>
+      <hr />
       <h3>Code</h3>
       <code>
         const formattedDate = new Intl.RelativeTimeFormat(locale, {

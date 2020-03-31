@@ -3,6 +3,7 @@
 }
 
 html {
+  background-color: #dedede;
   font-size: 100%;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.3rem;
@@ -10,6 +11,10 @@ html {
 
 h1 {
   font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 body {
@@ -22,8 +27,11 @@ main {
 }
 
 section {
+  background-color: white;
+  border-radius: 0.5rem;
   border-bottom: 1px solid gray;
-  padding-bottom: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 input {
