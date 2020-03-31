@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🌐 The Intl Object</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
   <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -22,58 +24,46 @@
   <main>
     <section>
       <h2>Intl.Collator</h2>
-      <p>Developer: Hey browser, is there some way I can <strong>sort some elements considering that each language has
-          different alphabets?</strong></p>
-      <p>Browser: Of course, use Intl.Collator. Here's a simple example where the letter ä has a different order
-        depending
-        on the language</p>
+      <p><em>Sorts elements considering the locale. Surprisingly, some letters don't hold the same position in the
+          alphabet in different languages</em></p>
+      <h3>Example</h3>
+      <p>This example demonstrates how the letter z actually comes before ä in the Swedish language </p>
       <ul id="sorted-elements"></ul>
       <hr />
       <h3>Code:</h3>
-      <code>
-        const sortedElements = elementsToSort.concat().sort(new Intl.Collator(locale).compare)
-      </code>
+      <pre><code class="javascript">const sortedElements = elementsToSort.concat().sort(new Intl.Collator(locale).compare)</code></pre>
     </section>
 
     <section>
       <h2>Intl.DateTimeFormat</h2>
-      <p>Developer: Hey browser, there are so many ways to format dates, is there a way to <strong>format dates for a
-          specific locale?</strong></p>
-      <p>Browser: As usual, there is. Just use Intl.DateTimeFormat and you're good to go. For example, let's format
-        today's date:</p>
-      <span id="formatted-date"></span>
+      <p><em>Format dates for a specific locale</em></p>
+      <h3>Example</h3>
+      <p>Let's format today's date: <span id="formatted-date"></span></p>
       <hr />
       <h3>Code:</h3>
-      <code>
-        const formattedDate = new Intl.DateTimeFormat(locale).format(new Date())
-      </code>
+      <pre><code>const formattedDate = new Intl.DateTimeFormat(locale).format(new Date())</code></pre>
     </section>
 
     <section>
       <h2>Intl.ListFormat</h2>
-      <p>Developer: Hey browser, I'm making a cooking app and want to show a list of ingredients. As always, each
-        locale has a different way to format list elements.Do you have for me to help <strong>form lists with connectors
-          in
-          them according to the locale?</strong></p>
+      <p><em>Form lists with connectors according to the locale</em></p>
+      <h3>Example</h3>
       <p>Browser: A simple API as always. Go with Intl.ListFormat, it supports conjunction, disjunction and unit
         formatting. Here's an example</p>
       <ul id="list-format"></ul>
       <hr />
       <h3>Code</h3>
-      <code>
-        const formattedList = new Intl.ListFormat(locale, {
-          style: 'long',
-          type: 'conjunction'
-        }).format(elementsForListFormat)
-      </code>
+      <pre><code>const formattedList = new Intl.ListFormat(locale, {
+  style: 'long',
+  type: 'conjunction'
+}).format(elementsForListFormat)</code></pre>
     </section>
 
     <section>
       <h2>Intl.NumberFormat</h2>
-      <p>Developer: Hey browser, I'd like to <strong>format numbers according to a locale and a format like
-          money.</strong> I'm working on adding a payment screen. What to do? </p>
-      <p>Browser: Worry not, just use Intl.NumberFormat and problem solved. I created a demo for you to try it
-        out:</p>
+      <p><em>Format numbers according to a locale and a format like money.</em></p>
+      <h3>Example</h3>
+      <p>This API lets you format lists using conjunctions, disjunctions and unit formatting</p>
       <div class="form-group">
         <label for="number-format">Enter a money amount:</label>
         <input id="number-format" type="number" value="123" />
@@ -89,22 +79,18 @@
       </div>
       <hr />
       <h3>Code</h3>
-      <code>
-        const formattedCurrency = new Intl.NumberFormat(locale, {
-          style: 'currency',
-          currency,
-      }).format(numberToFormat)
-      </code>
+      <pre class="javascript"><code>const formattedCurrency = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency,
+}).format(numberToFormat)</code></pre>
     </section>
 
     <section>
       <h2>Intl.PluralRules</h2>
-      <p>Developer: Hey browser, I'm <strong>creating a formatting function to display ordinal (or cardinal)
-          numbers according to a locale</strong> for a ranking feature
-        (1st, 2nd, 3rd). It's hard to tell which suffix I should use. Can you give me a hand?</p>
-      <p>Browser: Yes and no I'd say. Here I can help you with some plural rules for you to create the suffix
-        yourself so you'll probably want to create a map of plural rule -> suffix. Here's an example of what I mean by
-        plural rule:</p>
+      <p><em>Display ordinal (or cardinal) numbers according to a locale</em></p>
+      <h3>Example</h3>
+      <p>This api provides plural rules that you can use for adding plural suffixes. However, you need to do this rule
+        -> suffix translation on your own since every language has different values.</p>
       <div class="form-group">
         <label for="plural-rules-cat-count">Enter a number:</label>
         <input type="number" id="plural-rules-cat-count" value="3">
@@ -112,20 +98,16 @@
       <span id="plural-rules"></span>
       <hr />
       <h3>Code</h3>
-      <code>
-        const pluralRule = new Intl.PluralRules(locale, {
-          type: 'ordinal'
-        }).select(count)
-      </code>
+      <pre class="javascript"><code>const pluralRule = new Intl.PluralRules(locale, {
+  type: 'ordinal'
+}).select(count)</code></pre>
     </section>
 
     <section>
       <h2>Intl.RelativeTimeFormat</h2>
-      <p>Developer: Hey browser, I'm still working on that online store and want to create a tracking screen.
-        However, it's kind of hard to generate these "Your package arrives in X time". Is there a way to
-        <strong>generate relative time periods according to a locale.</strong> A bit of help?</p>
-      <p>Browser: I have exactly what you need. Just use Intl.RelativeTimeFormat, pass a value and a unit and voila!
-        Here's a playground for you to see how it works</p>
+      <p><em>Generate relative time periods according to a locale.</em></p>
+      <h3>Example</h3>
+      <p></p>
       <div class="form-group">
         <label for="relative-time-format-value">Enter a value and unit:</label>
         <input id="relative-time-format-value" type="number" value="1" />
@@ -138,20 +120,16 @@
       The value formatted with the unit is: <span id="relative-time-format"></span>
       <hr />
       <h3>Code</h3>
-      <code>
-        const formattedDate = new Intl.RelativeTimeFormat(locale, {
-          style: 'narrow'
-        }).format(value, unit)
-      </code>
+      <pre class="javascript"><code>const formattedDate = new Intl.RelativeTimeFormat(locale, {
+  style: 'narrow'
+}).format(value, unit)</code></pre>
     </section>
 
     <section>
       <h2>Intl.Locale</h2>
-      <p>Developer: Hey browser, I hate implementing functions to <strong>parse unicode locale identifiers</strong> (as
-        we all do).
-        Can't you just do this for me?</p>
-      <p>Browser: Of course I can. Just use Intl.Locale, pass your unicode locale identifier and use whatever
-        attributes you need. Here's how the selected locale looks like deconstructed</p>
+      <p><em>Parse unicode locale identifiers</em></p>
+      <h3>Example</h3>
+      <p>TODO</p>
       <div class="form-group">
         <label for="intl-locale">Select a unicode locale identifier:</label>
         <select id="intl-locale">
@@ -161,12 +139,16 @@
       </div>
       <span id="int-locale-formatted"></span>
       <h3>Code</h3>
-      <code>const localeObj = new Intl.Locale(locale)</code> <br />
-      <code>const propertiesOfLocale = `Properties of selected locale are: baseName ${localeObj.baseName}, calendar ${localeObj.calendar} , language ${localeObj.language}, region ${localeObj.region}`</code>
+      <pre class="javascript"><code>const localeObj = new Intl.Locale(locale)
+const propertiesOfLocale =
+  `Properties of selected locale are: baseName ${localeObj.baseName},
+  calendar ${localeObj.calendar} , language ${localeObj.language},
+  region ${localeObj.region}`</code></pre>
     </section>
   </main>
 
   <script src="./index.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>

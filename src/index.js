@@ -19,7 +19,7 @@ const addTextAndHighlight = (domElement, text) => addHighlightClass(domElement).
 const elementsToSort = [
     'al',
     'äng',
-    'zahl'
+    'zahl',
 ]
 
 const renderSortedElements = (locale) => {
